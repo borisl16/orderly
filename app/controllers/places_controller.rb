@@ -9,8 +9,7 @@ class PlacesController < ApplicationController
   # GET /places/1 or /places/1.json
   def show
     @place = Place.find(params[:id])
-    @storage_item = @place.storage_item
-    redirect_to new_place_storage_item_path
+    @storage_items = @place.storage_items
   end
 
   # GET /places/new

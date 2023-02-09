@@ -28,7 +28,7 @@ class StorageItemsController < ApplicationController
     respond_to do |format|
       if @storage_item.save
         format.html { redirect_to storage_item_url(@storage_item), notice: "Storage item was successfully created." }
-        format.json { render :show, status: :created, location: @storage_item }
+        format.json { render :show, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @storage_item.errors, status: :unprocessable_entity }
