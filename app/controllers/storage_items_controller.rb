@@ -1,4 +1,5 @@
 class StorageItemsController < ApplicationController
+  before_action :set_place 
   before_action :set_storage_item, only: %i[ show edit update destroy ]
 
   # GET /storage_items or /storage_items.json
@@ -23,11 +24,11 @@ class StorageItemsController < ApplicationController
 
   # POST /storage_items or /storage_items.json
   def create
-    @storage_item = StorageItem.new(storage_item_params)
+    @storage_item = StorageItem.new(storage_item_params.merge(place: @place))
 
     respond_to do |format|
       if @storage_item.save
-        format.html { redirect_to storage_item_url(@storage_item), notice: "Storage item was successfully created." }
+        format.html { redirect_to place_storage_items_path(@place), notice: "Storage item was successfully created." }
         format.json { render :show, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -69,4 +70,9 @@ class StorageItemsController < ApplicationController
     def storage_item_params
       params.require(:storage_item).permit(:title, :body)
     end
+
+    def set_place 
+      @place = Place.find(params[:place_id])
+    end
+    
 end

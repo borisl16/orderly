@@ -3,8 +3,8 @@
 <%= render @storage_item %>
 
 <div>
-  <%= link_to "Edit this storage item", edit_storage_item_path(@storage_item) %> |
-  <%= link_to "Back to storage items", storage_items_path %>
+  <%= link_to "Edit this storage item", place_storage_item_path(@place, @storage_item) %> |
+  <%= link_to "Back to storage items", place_storage_items_path(@place) %>
 
-  <%= button_to "Destroy this storage item", @storage_item, method: :delete %>
+  <%= button_to "Destroy this storage item", place_storage_item_path(@place, @storage_item), method: :delete %>
 </div>
