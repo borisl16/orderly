@@ -1,14 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Places</h1>
+<nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Places</span>
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Find me..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+  </div>
+</nav>
 
-<div id="places">
-  <% @places.each do |place| %>
-    <%= render place %>
-    <p>
-      <%= link_to "Show this place", place %>
-    </p>
+        <% @places.each do |place| %>
+          <%= render place %>
+  <%= link_to "Show this place", place %>
   <% end %>
-</div>
 
+
+</div>
+<br>
 <%= link_to "New place", new_place_path %>
+
+

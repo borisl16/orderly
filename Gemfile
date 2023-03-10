@@ -71,3 +71,6 @@ group :test do
   gem "webdrivers"
   gem "rspec"
 end
+
+gem 'jsbundling-rails'
+gem 'cssbundling-rails'

@@ -1,0 +1,27 @@
+<%= form_with(model:[ @place, @storage_item]) do |form| %>
+  <% if storage_item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(storage_item.errors.count, "error") %> prohibited this storage_item from being saved:</h2>
+
+      <ul>
+        <% storage_item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
