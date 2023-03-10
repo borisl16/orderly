@@ -3,8 +3,11 @@
 <%= render @place %>
 
 <div>
-  <%= link_to "Edit this place", edit_place_path(@place) %> |
+  <% @place.storage_items.each do |storage_item|  %>
+      <%= link_to storage_item.title, place_storage_item_path(@place, storage_item) %> |
+  <% end %>
+  <%= link_to 'Create a new storage item', new_place_storage_item_path(@place)%>
   <%= link_to "Back to places", places_path %>
-
+  
   <%= button_to "Destroy this place", @place, method: :delete %>
 </div>

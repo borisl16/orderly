@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   
   resources :places do
-      resources :storage_items
+      resources :storage_items, defaults: { place: nil, place_id: nil}
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
