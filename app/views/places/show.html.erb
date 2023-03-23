@@ -1,13 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @place %>
+<div id="<%= dom_id @place %>">
 
-<div>
-  <% @place.storage_items.each do |storage_item|  %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h5><strong><%= link_to @place.location, @place %></strong></h5>
+    </div>
+      <img src="..." class="card-img-top" alt="...">     
+        <% @place.storage_items.each do |storage_item|  %>
       <%= link_to storage_item.title, place_storage_item_path(@place, storage_item) %> |
-  <% end %>
-  <%= link_to 'Create a new storage item', new_place_storage_item_path(@place)%>
+    <% end %>
+    <div class="card-content gap-4 col-10 mx-auto">
+      <%= link_to 'Create a new storage item', new_place_storage_item_path(@place), class: "btn btn-primary" %> 
+      <%= link_to "Destroy this place", @place, method: :delete, class: "btn btn-danger" %>
+    </div>
+  <div class="card-footer">
   <%= link_to "Back to places", places_path %>
-  
-  <%= button_to "Destroy this place", @place, method: :delete %>
+  </div>
+  </div>
 </div>
+
+  
+
+

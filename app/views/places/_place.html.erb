@@ -1,18 +1,10 @@
 <div id="<%= dom_id place %>">
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><strong>Location:</strong></h5>
-      <%= link_to place.location %>
-      <br>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-  <p>
-   
-    
-    
-  </p>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h5><strong><%= link_to place.location, place %></strong></h5>
+    </div>
+      <img src="..." class="card-img-top" alt="...">     
 
+  </div>
 </div>

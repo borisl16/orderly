@@ -1,22 +1,23 @@
-<%= form_with(model: place, @storage_item) do |form| %>
-  <% if place.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
 
-      <ul>
-        <% place.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: place) do |form| %>
+    <% if place.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+        <ul>
+          <% place.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="container">
+      <%= form.label :location, style: "display: block" %>
+      <%= form.text_field :location %>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
