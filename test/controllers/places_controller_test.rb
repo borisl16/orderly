@@ -12,7 +12,7 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_place_url
-    assert_response :success
+    assert_response :success    
   end
 
   test "should create place" do
@@ -40,7 +40,7 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy place" do
     assert_difference("Place.count", -1) do
-      delete place_url(@place)
+    delete place_url(@place)
     end
 
     assert_redirected_to places_url

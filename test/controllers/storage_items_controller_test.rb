@@ -3,6 +3,7 @@ require "test_helper"
 class StorageItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @storage_item = storage_items(:one)
+    @place = places(:one)
   end
 
   test "should get index" do
@@ -17,10 +18,10 @@ class StorageItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create storage_item" do
     assert_difference("StorageItem.count") do
-      post storage_items_url, params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
+      post place_storage_items_url(@place), params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
     end
 
-    assert_redirected_to storage_item_url(StorageItem.last)
+    assert_redirected_to place_url(@place)
   end
 
   test "should show storage_item" do
@@ -40,9 +41,9 @@ class StorageItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy storage_item" do
     assert_difference("StorageItem.count", -1) do
-      delete storage_item_url(@storage_item)
+      delete place_storage_item_url(@place, @storage_item)
     end
 
-    assert_redirected_to storage_items_url
+    assert_redirected_to place_url(@place)
   end
 end
