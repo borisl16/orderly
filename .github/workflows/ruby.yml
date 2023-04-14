@@ -23,11 +23,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: false
+      - name: bundle pristine
+        run: bundle pristine
       - name: Run tests
         env:
           RAILS_ENV: test
           DATABASE_PORT: 3306
         run: |
-          bundle exec rails db:create
-          bundle exec rails db:schema:load
-          bundle exec rails test
+          bin/rails db:create
+          bin/rails db:schema:load
+          bin/rails test
