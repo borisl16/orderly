@@ -28,6 +28,6 @@ jobs:
           RAILS_ENV: test
           DATABASE_PORT: 3306
         run: |
-          bundle exec bin/rails db:create
-          bundle exec bin/rails db:schema:load
-          bundle exec bin/rails test
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+          bundle exec rails test
