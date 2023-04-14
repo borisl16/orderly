@@ -24,13 +24,14 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: false
-      - name: show bundler
-        run: bundle -v
+      - name: bundle
+        run: bundle install
       - name: Run tests
         env:
           RAILS_ENV: test
           DATABASE_PORT: 3306
         run: |
+          bin/rails -v
           bin/rails db:create
           bin/rails db:schema:load
           bin/rails test
