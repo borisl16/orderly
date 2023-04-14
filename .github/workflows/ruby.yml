@@ -19,10 +19,9 @@ jobs:
           - "3306:3306"
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Ruby 2.7
+      - name: Setup Ruby 
         uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
+        with: 
           bundler: default
           bundler-cache: true
       - name: Run tests
