@@ -17,6 +17,7 @@ class StorageItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create storage_item" do
+    @place = Place.create(name: "Kitchen")
     assert_difference("StorageItem.count") do
       post place_storage_items_url(@place), params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
     end

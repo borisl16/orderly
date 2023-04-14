@@ -6,17 +6,19 @@
     <div class="card-header">
       <h5><strong><%= link_to @place.location, @place %></strong></h5>
     </div>
-      <img src="..." class="card-img-top" alt="...">     
+      <img src="..." class="card-img-top" alt="..." >     
         <% @place.storage_items.each do |storage_item|  %>
-      <%= link_to storage_item.title, place_storage_item_path(@place, storage_item) %> |
+        <%= link_to storage_item.title, place_storage_item_path(@place, storage_item) %> |
     <% end %>
-    <div class="card-content gap-4 col-10 mx-auto">
-      <%= link_to 'Create a new storage item', new_place_storage_item_path(@place), class: "btn btn-primary" %> 
-      <%= link_to "Destroy this place", @place, method: :delete, class: "btn btn-danger" %>
+    <br>
+    <div class="card-content d-grid gap-1">
+      <%= link_to "Create a new storage item", new_place_storage_item_path(@place), class: "btn btn-primary btn-rounded" %> 
+      <%= button_to "Destroy this place", place_path(@place), method: :delete, class: "btn btn-danger btn-rounded" %>
     </div>
-  <div class="card-footer">
-  <%= link_to "Back to places", places_path %>
-  </div>
+    <br>
+    <div class="card-footer text-center">
+      <%= link_to "Back to places", places_path(@place), class: "btn btn-light btn-rounded" %>
+    </div>
   </div>
 </div>
 

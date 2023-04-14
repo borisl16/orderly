@@ -11,13 +11,18 @@
         </ul>
       </div>
     <% end %>
-
-    <div class="container">
-      <%= form.label :location, style: "display: block" %>
-      <%= form.text_field :location %>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <%= form.label :location, style: "display: block" %>
+            <%= form.text_field :location %>
+          </div>
+          <div class="card-footer text-center">    
+            <%= form.submit class: "btn btn-light btn-rounded"%>    
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
