@@ -20,6 +20,7 @@ class StorageItemsController < ApplicationController
 
   # GET /storage_items/1/edit
   def edit
+   
   end
 
   # POST /storage_items or /storage_items.json

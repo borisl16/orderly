@@ -7,12 +7,12 @@ class StorageItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get storage_items_url
+    get place_storage_items_url(@storage_item)
     assert_response :success
   end
 
   test "should get new" do
-    get new_storage_item_url
+    get new_place_storage_item_url(@place)
     assert_response :success
   end
 
@@ -25,18 +25,18 @@ class StorageItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show storage_item" do
-    get storage_item_url(@storage_item)
+    get place_storage_items_url(@place)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_storage_item_url(@storage_item)
+    get edit_place_url(@place)
     assert_response :success
   end
 
   test "should update storage_item" do
-    patch storage_item_url(@storage_item), params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
-    assert_redirected_to storage_item_url(@storage_item)
+    post place_storage_items_url(@place), params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
+    assert_redirected_to place_url(@place)
   end
 
   test "should destroy storage_item" do
