@@ -3,48 +3,48 @@ require "test_helper"
 class StorageItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @storage_item = storage_items(:one)
+    @place = places(:one)
   end
 
   test "should get index" do
-    get storage_items_url
+    get place_storage_items_url(@storage_item)
     assert_response :success
   end
 
   test "should get new" do
-    get new_storage_item_url
+    get new_place_storage_item_url(@place)
     assert_response :success
   end
 
   test "should create storage_item" do
-    @place = Place.create(name: "Kitchen")
+    @place = Place.create(location: "Kitchen")
     assert_difference("StorageItem.count") do
-      pp @place
       post place_storage_items_url(@place), params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
     end
 
-    assert_redirected_to storage_item_url(StorageItem.last)
+    assert_redirected_to place_url(@place)
   end
 
   test "should show storage_item" do
-    get storage_item_url(@storage_item)
+    get place_storage_items_url(@place)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_storage_item_url(@storage_item)
+    get edit_place_url(@place)
     assert_response :success
   end
 
   test "should update storage_item" do
-    patch storage_item_url(@storage_item), params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
-    assert_redirected_to storage_item_url(@storage_item)
+    post place_storage_items_url(@place), params: { storage_item: { body: @storage_item.body, title: @storage_item.title } }
+    assert_redirected_to place_url(@place)
   end
 
   test "should destroy storage_item" do
     assert_difference("StorageItem.count", -1) do
-      delete storage_item_url(@storage_item)
+      delete place_storage_item_url(@place, @storage_item)
     end
 
-    assert_redirected_to storage_items_url
+    assert_redirected_to place_url(@place)
   end
 end
