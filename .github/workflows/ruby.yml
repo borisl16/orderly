@@ -18,13 +18,14 @@ jobs:
         ports:
           - "3306:3306"
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: false
-      - name: bundle pristine
-        run: bundle pristine
+      - name: show bundler
+        run: bundle -v
       - name: Run tests
         env:
           RAILS_ENV: test
