@@ -6,10 +6,14 @@
     <div class="card-header">
       <h5><strong><%= link_to @place.location, @place %></strong></h5>
     </div>
-      <img src="..." class="card-img-top" alt="..." >     
-        <% @place.storage_items.each do |storage_item|  %>
-        <%= link_to storage_item.title, place_storage_item_path(@place, storage_item) %> |
-    <% end %>
+      <img src="..." class="card-img-top" alt="..." >
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" > 
+              <% @place.storage_items.each do |storage_item| %> <br>
+                <%= link_to storage_item.title, place_storage_item_path(@place, storage_item) %>
+              <% end %> 
+          </li>
+        </ul>
     <br>
     <div class="card-content d-grid gap-1">
       <%= link_to "Create a new storage item", new_place_storage_item_path(@place), class: "btn btn-primary btn-rounded" %> 
