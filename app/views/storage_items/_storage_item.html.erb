@@ -1,12 +1,14 @@
-<div id="<%= dom_id storage_item %>">
-  <p>
-    <strong>Title:</strong>
-    <%= storage_item.title %>
-  </p>
+<div id="<%= dom_id storage_item %>">  
+        <p>
+          <strong>Title:</strong>
+          <%= storage_item.title %>
+        </p>
 
-  <p>
-    <strong>Body:</strong>
-    <%= storage_item.body %>
-  </p>
-
+        <p>
+          <strong>Body:</strong>
+          <%= storage_item.body %>
+        </p>
+        
+          <%= image_tag storage_item.image, class: "card-img-top img fluid" %>  
+        
 </div>

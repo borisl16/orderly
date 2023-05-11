@@ -18,6 +18,9 @@
           <div class="card-body">
             <%= form.label :location, style: "display: block" %>
             <%= form.text_field :location %>
+            <br>
+            <%= form.label :image %>
+            <%= form.file_field :image, id: :place_image %>
           </div>
           <div class="card-footer text-center">    
             <%= form.submit class: "btn btn-light btn-rounded"%>    

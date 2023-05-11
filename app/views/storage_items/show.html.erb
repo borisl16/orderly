@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+    
+    <%= render @storage_item %>
+    
+    <%= link_to "Edit this storage item", place_storage_item_path(@place, @storage_item) %> |
+    <%= link_to "Back to place", place_path(@place) %>
 
-<%= render @storage_item %>
-
-<div>
-  <%= link_to "Edit this storage item", place_storage_item_path(@place, @storage_item) %> |
-  <%= link_to "Back to place", place_path(@place) %>
-
-  <%= button_to "Destroy this storage item", place_storage_item_path(@place, @storage_item), method: :delete %>
+    <%= button_to "Destroy this storage item", place_storage_item_path(@place, @storage_item), method: :delete %>
+  </div>
 </div>
