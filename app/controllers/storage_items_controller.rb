@@ -70,7 +70,7 @@ class StorageItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def storage_item_params
-      params.require(:storage_item).permit(:title, :body)
+      params.require(:storage_item).permit(:title, :body, :image)
     end
 
     def set_place 

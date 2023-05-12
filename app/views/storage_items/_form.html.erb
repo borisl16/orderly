@@ -21,6 +21,11 @@
     <%= form.text_area :body %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :storage_item_image %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

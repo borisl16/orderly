@@ -1,12 +1,16 @@
-<div id="<%= dom_id storage_item %>">
-  <p>
-    <strong>Title:</strong>
-    <%= storage_item.title %>
-  </p>
+<div id="<%= dom_id storage_item %>">  
+        <p>
+          <strong>Title:</strong>
+          <%= storage_item.title %>
+        </p>
 
-  <p>
-    <strong>Body:</strong>
-    <%= storage_item.body %>
-  </p>
-
+        <p>
+          <strong>Body:</strong>
+          <%= storage_item.body %>
+        </p>
+        
+      <% if storage_item.image.attached? %>
+        <%= image_tag storage_item.image %> 
+      <% end %> 
+        
 </div>
