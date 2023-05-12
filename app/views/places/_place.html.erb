@@ -5,7 +5,9 @@
       <h5><strong><%= link_to place.location, place %></strong></h5>
     </div>
     
-      <img <%= image_tag place.image %> >      
+      <% if place.image.attached? %>
+        <%= image_tag place.image %> 
+      <% end %>  
       
     </div>
   </div>

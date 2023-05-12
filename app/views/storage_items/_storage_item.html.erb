@@ -9,6 +9,8 @@
           <%= storage_item.body %>
         </p>
         
-          <%= image_tag storage_item.image, class: "card-img-top img fluid" %>  
+      <% if storage_item.image.attached? %>
+        <%= image_tag storage_item.image %> 
+      <% end %> 
         
 </div>
